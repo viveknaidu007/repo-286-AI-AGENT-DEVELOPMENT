@@ -1,0 +1,58 @@
+# FastAPI Backend with RAG
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# LLM Providers
+# Google Gemini (Default - Free)
+google-generativeai==0.3.2
+
+# OpenAI (Uncomment to use)
+# openai==1.10.0
+
+# LangChain for AI orchestration
+langchain==0.1.4
+langchain-community==0.0.16
+langchain-core==0.1.16
+
+# For Azure OpenAI via LangChain (Uncomment to use)
+# langchain-openai==0.0.5
+
+# For Google Gemini via LangChain
+langchain-google-genai==0.0.6
+
+# Vector Stores
+# FAISS (Default - Free, Local)
+faiss-cpu==1.7.4
+
+# Pinecone (Uncomment to use)
+# pinecone-client==3.0.2
+
+# Azure AI Search (Uncomment to use)
+# azure-search-documents==11.4.0
+# azure-identity==1.15.0
+
+# Embeddings
+sentence-transformers==2.3.1
+
+# Document Processing
+pypdf==4.0.1
+python-multipart==0.0.6
+markdown==3.5.2
+
+# Utilities
+numpy==1.26.3
+requests==2.31.0
+aiofiles==23.2.1
+
+# Session Management
+redis==5.0.1
+hiredis==2.3.2
+
+# Logging and Monitoring
+python-json-logger==2.0.7
+
+# For Azure deployment
+# azure-monitor-opentelemetry==1.2.0

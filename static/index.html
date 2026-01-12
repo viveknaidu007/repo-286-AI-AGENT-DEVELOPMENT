@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG AI Agent - Intelligent Document Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">🤖</span>
+                    RAG AI Agent
+                </h1>
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span class="status-text" id="statusText">Connecting...</span>
+                </div>
+            </div>
+            <p class="subtitle">Your intelligent document assistant powered by AI</p>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <div class="messages-wrapper" id="messagesWrapper">
+                <div class="welcome-message">
+                    <div class="welcome-icon">👋</div>
+                    <h2>Welcome to RAG AI Agent!</h2>
+                    <p>I can help you find information from our knowledge base or answer general questions.</p>
+                    <div class="example-queries">
+                        <p class="example-label">Try asking:</p>
+                        <button class="example-query" onclick="askExample('What is the work from home policy?')">
+                            What is the work from home policy?
+                        </button>
+                        <button class="example-query" onclick="askExample('How do I reset my password?')">
+                            How do I reset my password?
+                        </button>
+                        <button class="example-query" onclick="askExample('What are the pricing plans?')">
+                            What are the pricing plans?
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="userInput" 
+                        placeholder="Ask me anything..." 
+                        rows="1"
+                        maxlength="2000"
+                    ></textarea>
+                    <button id="sendButton" class="send-button" onclick="sendMessage()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="session-info">Session: <span id="sessionId">Not started</span></span>
+                    <span class="char-count"><span id="charCount">0</span>/2000</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <span class="provider-name" id="providerName">AI</span> • 
+               Vector Store: <span class="vector-store" id="vectorStore">Loading...</span></p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
