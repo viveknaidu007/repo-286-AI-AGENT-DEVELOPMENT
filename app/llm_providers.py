@@ -20,7 +20,7 @@ from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 # For OpenAI via LangChain (Uncomment to use)
 # from langchain_openai import ChatOpenAI, AzureChatOpenAI
 
-from config import get_settings
+from app.config import get_settings
 
 logger = logging.getLogger(__name__)
 

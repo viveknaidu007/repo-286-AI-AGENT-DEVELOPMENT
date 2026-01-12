@@ -13,8 +13,8 @@ import logging
 import os
 from contextlib import asynccontextmanager
 
-from agent import AIAgent
-from config import get_settings
+from app.agent import AIAgent
+from app.config import get_settings
 
 # Configure logging
 logging.basicConfig(

@@ -8,9 +8,9 @@ import logging
 import uuid
 from datetime import datetime, timedelta
 
-from llm_providers import get_llm_provider
-from rag_engine import RAGEngine
-from config import get_settings
+from app.llm_providers import get_llm_provider
+from app.rag_engine import RAGEngine
+from app.config import get_settings
 
 logger = logging.getLogger(__name__)
 

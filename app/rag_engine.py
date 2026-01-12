@@ -12,8 +12,8 @@ import logging
 import markdown
 from pypdf import PdfReader
 
-from vector_stores import get_vector_store
-from config import get_settings
+from app.vector_stores import get_vector_store
+from app.config import get_settings
 
 logger = logging.getLogger(__name__)
 

@@ -23,7 +23,7 @@ import numpy as np
 # from azure.core.credentials import AzureKeyCredential
 
 from sentence_transformers import SentenceTransformer
-from config import get_settings
+from app.config import get_settings
 
 logger = logging.getLogger(__name__)
 
