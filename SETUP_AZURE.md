@@ -192,7 +192,7 @@ az webapp deployment source config-zip \
 az webapp config set \
   --name rag-agent-app \
   --resource-group rg-rag-agent \
-  --startup-file "startup.sh"
+  --startup-file "app/startup.sh"
 ```
 
 ## Step 5: Enable Application Insights (Optional)
@@ -226,14 +226,16 @@ After deployment, you need to process the sample documents:
 # SSH into the App Service
 az webapp ssh --name rag-agent-app --resource-group rg-rag-agent
 
-# Run document processing
+# Navigate to app directory and run document processing
+cd app
 python process_documents.py
 ```
 
 Alternatively, you can process documents locally and upload the vector store:
 
 ```bash
-# Process locally (with Azure credentials in .env)
+# Process locally (with Azure credentials in app/.env)
+cd app
 python process_documents.py
 
 # Upload vector_store directory to Azure

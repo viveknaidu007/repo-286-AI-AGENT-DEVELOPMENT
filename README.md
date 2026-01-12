@@ -144,10 +144,10 @@ pip install -r requirements.txt
 4. **Configure environment**
 
 ```bash
-# Copy example env file
-cp .env.example .env
+# Copy example env file from app/ folder
+cp app/.env.example app/.env
 
-# Edit .env and add your Google API key
+# Edit app/.env and add your Google API key
 # LLM_PROVIDER=google
 # GOOGLE_API_KEY=your_google_api_key_here
 ```
@@ -155,17 +155,19 @@ cp .env.example .env
 5. **Process sample documents**
 
 ```bash
+cd app
 python process_documents.py
 ```
 
-This will process the three sample documents:
-- `company_policies.md`
-- `product_faqs.md`
-- `technical_documentation.md`
+This will process the three sample documents from the `docs/` folder:
+- `docs/company_policies.md`
+- `docs/product_faqs.md`
+- `docs/technical_documentation.md`
 
 6. **Start the server**
 
 ```bash
+# From the app/ directory
 uvicorn main:app --reload
 ```
 
@@ -173,11 +175,42 @@ uvicorn main:app --reload
 
 Navigate to: `http://localhost:8000`
 
+## 📁 Project Structure
+
+```
+repo-286-AI-AGENT-DEVELOPMENT/
+├── app/                         # Application code
+│   ├── main.py                 # FastAPI application
+│   ├── agent.py                # AI agent with decision making
+│   ├── rag_engine.py           # Document processing & retrieval
+│   ├── llm_providers.py        # LLM provider abstractions
+│   ├── vector_stores.py        # Vector store implementations
+│   ├── config.py               # Configuration management
+│   ├── process_documents.py    # Document indexing script
+│   ├── static/                 # Frontend files
+│   │   ├── index.html         # Main UI
+│   │   ├── style.css          # Modern styling
+│   │   └── script.js          # Frontend logic
+│   ├── .env.example           # Environment template
+│   ├── .env.production        # Production config
+│   ├── requirements.txt       # Python dependencies
+│   └── startup.sh             # Azure startup script
+│
+├── docs/                       # Sample documents for RAG
+│   ├── company_policies.md
+│   ├── product_faqs.md
+│   └── technical_documentation.md
+│
+├── README.md                   # This file
+├── SETUP_AZURE.md             # Azure deployment guide
+└── .gitignore                 # Git ignore rules
+```
+
 ## ⚙️ Configuration
 
 ### Environment Variables
 
-All configuration is done through environment variables. See `.env.example` for all available options.
+All configuration is done through environment variables. See `app/.env.example` for all available options.
 
 #### LLM Provider Settings
 
@@ -237,13 +270,13 @@ SESSION_TIMEOUT=3600
 
 #### To OpenAI:
 
-1. **Install OpenAI package** (uncomment in `requirements.txt`):
+1. **Install OpenAI package** (uncomment in `app/requirements.txt`):
 ```txt
 openai==1.10.0
 langchain-openai==0.0.5
 ```
 
-2. **Uncomment OpenAI code** in `llm_providers.py`:
+2. **Uncomment OpenAI code** in `app/llm_providers.py`:
 ```python
 # Uncomment the OpenAIProvider class
 ```
@@ -261,12 +294,12 @@ pip install -r requirements.txt
 
 #### To Azure OpenAI:
 
-1. **Install Azure OpenAI package** (uncomment in `requirements.txt`):
+1. **Install Azure OpenAI package** (uncomment in `app/requirements.txt`):
 ```txt
 langchain-openai==0.0.5
 ```
 
-2. **Uncomment Azure OpenAI code** in `llm_providers.py`:
+2. **Uncomment Azure OpenAI code** in `app/llm_providers.py`:
 ```python
 # Uncomment the AzureOpenAIProvider class
 ```
@@ -283,12 +316,12 @@ AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
 
 #### To Pinecone:
 
-1. **Install Pinecone** (uncomment in `requirements.txt`):
+1. **Install Pinecone** (uncomment in `app/requirements.txt`):
 ```txt
 pinecone-client==3.0.2
 ```
 
-2. **Uncomment Pinecone code** in `vector_stores.py`:
+2. **Uncomment Pinecone code** in `app/vector_stores.py`:
 ```python
 # Uncomment the PineconeVectorStore class
 ```
@@ -302,18 +335,19 @@ PINECONE_ENVIRONMENT=us-west1-gcp
 
 4. **Reprocess documents**:
 ```bash
+cd app
 python process_documents.py
 ```
 
 #### To Azure AI Search:
 
-1. **Install Azure Search** (uncomment in `requirements.txt`):
+1. **Install Azure Search** (uncomment in `app/requirements.txt`):
 ```txt
 azure-search-documents==11.4.0
 azure-identity==1.15.0
 ```
 
-2. **Uncomment Azure Search code** in `vector_stores.py`:
+2. **Uncomment Azure Search code** in `app/vector_stores.py`:
 ```python
 # Uncomment the AzureAISearchVectorStore class
 ```

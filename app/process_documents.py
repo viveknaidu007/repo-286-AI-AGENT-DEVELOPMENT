@@ -39,11 +39,12 @@ def main():
         logger.error(f"Failed to initialize RAG engine: {e}")
         return
     
-    # List of sample documents to process
+    # List of sample documents to process (in docs/ folder)
+    docs_dir = os.path.join(os.path.dirname(__file__), "..", "docs")
     documents = [
-        "company_policies.md",
-        "product_faqs.md",
-        "technical_documentation.md"
+        os.path.join(docs_dir, "company_policies.md"),
+        os.path.join(docs_dir, "product_faqs.md"),
+        os.path.join(docs_dir, "technical_documentation.md")
     ]
     
     # Process each document
